@@ -74,3 +74,9 @@ if (computerMove == 'kamień' && playerMove == 'nieznany ruch') {
 if (computerMove == 'papier' && playerMove == 'nieznany ruch') {
     printMessage(' Wartość spoza przedziału 1-3, wybierz jeszce raz! ');
 }
+
+let playerMove = 'papier';
+let computerMove = 'kamień';
+
+
+print.message('Zagrałem ' + computerMove + '! Jeśli twój ruch to ' + playerMove + ' to wygrywasz! ')
