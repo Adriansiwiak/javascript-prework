@@ -1,11 +1,10 @@
 {
-    let KAMIEŃ = '1';
-    let PAPIER = '2';
-    const NOŻYCE = '3';
+    let KAMIEŃ = 1;
+    let PAPIER = 2;
+    let NOŻYCE = 3;
 
     const playGame = function (playerInput) {
         clearMessages()
-
         const getMoveName = function (argMoveId) {
             if (argMoveId === 1) {
                 return 'kamień';
@@ -20,45 +19,42 @@
 
         const randomNumber = Math.floor(Math.random() * 3 + 1);
         console.log('Wylosowana liczba to: ' + randomNumber);
-        const argComputerMove = getMoveName(randomNumber);
-        console.log('Gracz wpisał: ' + playerInput);
-        const argPlayerMove = getMoveName(playerInput);
-
+        console.log('Gracz wpisał: ' + playerInput)
 
 
         const displayResult = function (argComputerMove, argPlayerMove) {
-            if (argComputerMove === 'kamień' && argPlayerMove === 'papier') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Wygrywasz!');
+            if (argComputerMove === KAMIEŃ && argPlayerMove === PAPIER) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
             }
-            else if (argComputerMove === 'nożyce' && argPlayerMove === 'papier') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Przegrywasz');
+            else if (argComputerMove === NOŻYCE && argPlayerMove === PAPIER) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz');
             }
-            else if (argComputerMove === 'kamień' && argPlayerMove === 'nożyce') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Przegrywasz ;(');
+            else if (argComputerMove === KAMIEŃ && argPlayerMove === NOŻYCE) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
             }
-            else if (argComputerMove === 'papier' && argPlayerMove === 'nożyce') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Wygrywasz!');
+            else if (argComputerMove === PAPIER && argPlayerMove === NOŻYCE) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
             }
             else if (argComputerMove === argPlayerMove) {
                 printMessage('Remis');
             }
-            else if (argComputerMove === 'papier' && argPlayerMove === 'kamień') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Przegrywasz ;(');
+            else if (argComputerMove === PAPIER && argPlayerMove === KAMIEŃ) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
             }
-            else if (argComputerMove === 'nożyce' && argPlayerMove === 'kamień') {
-                printMessage('Zagrałem ' +argComputerMove + ' a ty ' +argPlayerMove+ ' więc Wygrywasz!');
+            else if (argComputerMove === NOŻYCE && argPlayerMove === KAMIEŃ) {
+                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
             }
-            else if (argComputerMove === 'nożyce' && argPlayerMove === 'nieznany ruch') {
+            else if (argComputerMove === NOŻYCE && argPlayerMove === 'nieznany ruch') {
                 printMessage('Błąd');
             }
-            else if (argComputerMove === 'papier' && argPlayerMove === 'nieznany ruch') {
+            else if (argComputerMove === PAPIER && argPlayerMove === 'nieznany ruch') {
                 printMessage('Błąd');
             }
-            else if (argComputerMove === 'kamień' && argPlayerMove === 'nieznany ruch') {
+            else if (argComputerMove === KAMIEŃ && argPlayerMove === 'nieznany ruch') {
                 printMessage('Błąd');
             }
         }
-        displayResult(argComputerMove, argPlayerMove);
+        displayResult(randomNumber, playerInput);
     }
     document.getElementById('play-ro').addEventListener('click', function () {
         playGame(1);
