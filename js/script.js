@@ -23,35 +23,49 @@
 
 
         const displayResult = function (argComputerMove, argPlayerMove) {
-            if (argComputerMove === KAMIEŃ && argPlayerMove === PAPIER) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
+            var argComputerMove = KAMIEŃ;
+            switch (argPlayerMove) {
+                case 1:
+                    printMessage('Remis');
+                    break;
+                case 2:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
+                    break;
+                case 3:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
+                default:
+                    printMessage('Błąd')
+                    break;
             }
-            else if (argComputerMove === NOŻYCE && argPlayerMove === PAPIER) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz');
+            var argComputerMove = PAPIER;
+            switch (argPlayerMove) {
+                case 2:
+                    printMessage('Remis');
+                    break;
+                case 1:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
+                    break;
+                case 3:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
+                    break;
+                default:
+                    printMessage('Błąd')
+                    break;
             }
-            else if (argComputerMove === KAMIEŃ && argPlayerMove === NOŻYCE) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
-            }
-            else if (argComputerMove === PAPIER && argPlayerMove === NOŻYCE) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
-            }
-            else if (argComputerMove === argPlayerMove) {
-                printMessage('Remis');
-            }
-            else if (argComputerMove === PAPIER && argPlayerMove === KAMIEŃ) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
-            }
-            else if (argComputerMove === NOŻYCE && argPlayerMove === KAMIEŃ) {
-                printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
-            }
-            else if (argComputerMove === NOŻYCE && argPlayerMove === 'nieznany ruch') {
-                printMessage('Błąd');
-            }
-            else if (argComputerMove === PAPIER && argPlayerMove === 'nieznany ruch') {
-                printMessage('Błąd');
-            }
-            else if (argComputerMove === KAMIEŃ && argPlayerMove === 'nieznany ruch') {
-                printMessage('Błąd');
+            var argComputerMove = NOŻYCE;
+            switch (argPlayerMove) {
+                case 3:
+                    printMessage('Remis');
+                    break;
+                case 2:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
+                    break;
+                case 1:
+                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
+                    break;
+                default:
+                    printMessage('Błąd')
+                    break;
             }
         }
         displayResult(randomNumber, playerInput);
@@ -66,3 +80,6 @@
         playGame(3);
     });
 }
+
+
+
