@@ -1,8 +1,9 @@
 {
-    let KAMIEŃ = 1;
-    let PAPIER = 2;
-    let NOŻYCE = 3;
+    const KAMIEŃ = 1;
+    const PAPIER = 2;
+    const NOŻYCE = 3;
 
+   
     const playGame = function (playerInput) {
         clearMessages()
         const getMoveName = function (argMoveId) {
@@ -18,58 +19,36 @@
         }
 
         const randomNumber = Math.floor(Math.random() * 3 + 1);
-        console.log('Wylosowana liczba to: ' + randomNumber);
-        console.log('Gracz wpisał: ' + playerInput)
+        console.log('Mój ruch to: ' + randomNumber);
+        console.log('Twój ruch to: ' + playerInput);
 
 
         const displayResult = function (argComputerMove, argPlayerMove) {
-            var argComputerMove = KAMIEŃ;
-            switch (argPlayerMove) {
-                case 1:
-                    printMessage('Remis');
+            switch (true) {
+                case argComputerMove === argPlayerMove:
+                    printMessage('Remis')
                     break;
-                case 2:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
+                case argComputerMove === KAMIEŃ && argPlayerMove === PAPIER:
+                case argComputerMove === PAPIER && argPlayerMove === KAMIEŃ:
+                case argComputerMove === PAPIER && argPlayerMove === NOŻYCE:
+                case argComputerMove === NOŻYCE && argPlayerMove === KAMIEŃ:
+                    printMessage('Wygrywasz!');
                     break;
-                case 3:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
-                default:
-                    printMessage('Błąd')
-                    break;
-            }
-            var argComputerMove = PAPIER;
-            switch (argPlayerMove) {
-                case 2:
-                    printMessage('Remis');
-                    break;
-                case 1:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
-                    break;
-                case 3:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
+                case argComputerMove === KAMIEŃ && argPlayerMove === NOŻYCE:
+                case argComputerMove === NOŻYCE && argPlayerMove === PAPIER:
+                case argComputerMove === PAPIER && argPlayerMove === KAMIEŃ:
+                case argComputerMove === PAPIER && argPlayerMove === NOŻYCE:
+                    printMessage('Przegrywasz.');
                     break;
                 default:
-                    printMessage('Błąd')
+                    printMessage('Błąd!')
                     break;
             }
-            var argComputerMove = NOŻYCE;
-            switch (argPlayerMove) {
-                case 3:
-                    printMessage('Remis');
-                    break;
-                case 2:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Przegrywasz ;(');
-                    break;
-                case 1:
-                    printMessage('Zagrałem ' + getMoveName(argComputerMove) + ' a ty ' + getMoveName(playerInput) + ' więc Wygrywasz!');
-                    break;
-                default:
-                    printMessage('Błąd')
-                    break;
-            }
+            
         }
-        displayResult(randomNumber, playerInput);
+        displayResult(randomNumber, playerInput)
     }
+
     document.getElementById('play-ro').addEventListener('click', function () {
         playGame(1);
     });
@@ -80,6 +59,3 @@
         playGame(3);
     });
 }
-
-
-
