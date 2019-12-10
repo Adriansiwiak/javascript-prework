@@ -1,8 +1,8 @@
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-
+let computerMove, randomNumber; 
+randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('Wylosowana liczba to: ' + randomNumber);
 
-let computerMove = 'nieznany ruch';
+
 
 if(randomNumber === 1){
   computerMove === 'kamień';
@@ -13,13 +13,15 @@ else if(randomNumber === 2){
 else if(randomNumber === 3){
     computerMove === 'nozyce'
 }
-printMessage('Mój ruch to: ' + computerMove);
+else {
+    computerMove === 'nieznany ruch';
+}
 
-let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 
+let playerInput = prompt("Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.");{
+let prompt = parseInt(playerInput);
+}
 console.log('Gracz wpisał: ' + playerInput);
-
-let playerMove = 'nieznany ruch';
 
 if(playerInput === 1){
   playerMove === 'kamień';
@@ -30,23 +32,22 @@ else if(playerInput === 2){
 else if(playerInput === 3){
     playerMove === 'nozyce';
 }
+else{
+    console.log(błąd);
+}
 printMessage('Twój ruch to: ' + playerMove);
 
-if (computerMove == 'kamień' && playerMove == 'papier')
+if (computerMove === 'kamień' && playerMove === 'papier')
     printMessage('Wygrywasz!');
-else if (computerMove == 'kamień' && playerMove == 'kamień')
+else if (computerMove === playerMove)
     printMessage('Remis!');
-else if (computerMove == 'kamień' && playerMove == 'nożyce')
+else if (computerMove === 'kamień' && playerMove === 'nożyce')
     printMessage('Przegrywasz!');
-else if (computerMove == 'papier' && playerMove == 'papier')
-    printMessage('Remis!');
-else if (computerMove == 'papier' && playerMove == 'kamień')
+else if (computerMove === 'papier' && playerMove === 'kamień')
     printMessage('Przegrywasz!');
-else if (computerMove == 'papier' && playerMove == 'nożyce')
+else if (computerMove === 'papier' && playerMove === 'nożyce')
     printMessage('Wygrywasz!');
-else if (computerMove == 'nożyce' && playerMove == 'papier')
+else if (computerMove === 'nożyce' && playerMove === 'papier')
     printMessage('Przegrywasz!');
-else if (computerMove == 'nożyce' && playerMove == 'kamień')
+else if (computerMove === 'nożyce' && playerMove === 'kamień')
     printMessage('Wygrywasz!');
-else if (computerMove == 'nożyce' && playerMove == 'nożyce')
-    printMessage('Remis!');
